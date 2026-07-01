@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boat Booking System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Boat Booking System</h1>
+        <p>Andaman Nicobar → Lakshadweep</p>
+      </header>
+
+      <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="showTab('seats')">
+          View Seats
+        </button>
+        <button class="tab-btn" onclick="showTab('book')">Book Seat</button>
+        <button class="tab-btn" onclick="showTab('meal')">Add Meal</button>
+        <button class="tab-btn" onclick="showTab('cancel')">
+          Cancel Booking
+        </button>
+        <button class="tab-btn" onclick="showTab('booking')">
+          View Booking
+        </button>
+        <button class="tab-btn" onclick="showTab('predict')">Prediction</button>
+      </nav>
+
+      <div id="seats-tab" class="tab-content active">
+        <h2>Available Seats</h2>
+        <button onclick="loadSeats()" class="btn-primary">Load Seats</button>
+        <div id="seats-container" class="seats-grid"></div>
+      </div>
+
+      <div id="book-tab" class="tab-content">
+        <h2>Book a Seat</h2>
+        <form id="book-form" onsubmit="bookSeat(event)">
+          <div class="form-group">
+            <label for="book-seat-id">Seat ID:</label>
+            <input type="number" id="book-seat-id" required min="1" max="20" />
+          </div>
+          <div class="form-group">
+            <label for="book-user-name">Passenger Name:</label>
+            <input type="text" id="book-user-name" required />
+          </div>
+          <button type="submit" class="btn-primary">Book Seat</button>
+        </form>
+        <div id="book-result"></div>
+      </div>
+
+      <div id="meal-tab" class="tab-content">
+        <h2>Add Meal to Booking</h2>
+        <form id="meal-form" onsubmit="addMeal(event)">
+          <div class="form-group">
+            <label for="meal-seat-id">Seat ID:</label>
+            <input type="number" id="meal-seat-id" required min="1" max="20" />
+          </div>
+          <div class="form-group">
+            <label for="meal-choice">Meal Choice:</label>
+            <select id="meal-choice" required>
+              <option value="">Select Meal</option>
+              <option value="Veg Thali">Veg Thali</option>
+              <option value="Non-Veg Thali">Non-Veg Thali</option>
+              <option value="Veg Biryani">Veg Biryani</option>
+              <option value="Chicken Biryani">Chicken Biryani</option>
+              <option value="Snacks">Snacks</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Add Meal</button>
+        </form>
+        <div id="meal-result"></div>
+      </div>
+
+      <div id="cancel-tab" class="tab-content">
+        <h2>Cancel Booking</h2>
+        <form id="cancel-form" onsubmit="cancelBooking(event)">
+          <div class="form-group">
+            <label for="cancel-seat-id">Seat ID:</label>
+            <input
+              type="number"
+              id="cancel-seat-id"
+              required
+              min="1"
+              max="20"
+            />
+          </div>
+          <button type="submit" class="btn-danger">Cancel Booking</button>
+        </form>
+        <div id="cancel-result"></div>
+      </div>
+
+      <div id="booking-tab" class="tab-content">
+        <h2>View Booking Details</h2>
+        <form id="booking-form" onsubmit="getBooking(event)">
+          <div class="form-group">
+            <label for="view-seat-id">Seat ID:</label>
+            <input type="number" id="view-seat-id" required min="1" max="20" />
+          </div>
+          <button type="submit" class="btn-primary">Get Booking Details</button>
+        </form>
+        <div id="booking-result"></div>
+      </div>
+
+      <div id="predict-tab" class="tab-content">
+        <h2>Booking Confirmation Prediction</h2>
+        <form id="predict-form" onsubmit="getPrediction(event)">
+          <div class="form-group">
+            <label for="days-left">Days Left:</label>
+            <input type="number" id="days-left" required min="0" />
+          </div>
+          <div class="form-group">
+            <label for="waiting-pos">Waiting List Position:</label>
+            <input type="number" id="waiting-pos" required min="1" />
+          </div>
+          <button type="submit" class="btn-primary">Get Prediction</button>
+        </form>
+        <div id="predict-result"></div>
+      </div>
+
+      <div id="messages" class="messages"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
