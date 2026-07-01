@@ -21,8 +21,10 @@ Import the `seats.sql` file into MySQL before running the project.
 
 ## How to Run
 1. Clone this repository.
-2. Import `seats.sql` into MySQL.
-3. Configure your database credentials in the Python file.
-4. Run the project:
+2. git clone [https://github.com/sohamshivale07/Cruise-Booking-System.git](https://github.com/sohamshivale07/Cruise-Booking-System.git)
+cd Cruise-Booking-System
+3. Import `seats.sql` into MySQL.
+4. Configure your database credentials in the Python file.
+5. Run the project:
    ```bash
    python main.py
